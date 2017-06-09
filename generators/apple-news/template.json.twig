@@ -1,0 +1,58 @@
+{
+  "role": "container",
+  "layout": {
+    "columnStart": 0,
+    "columnSpan": 7,
+    "ignoreDocumentMargin": true
+  },
+  "components": [
+    {% for image in images %}
+    {
+    "role": "section",
+    "components": [
+        {
+          "role": "caption",
+          "text": {{image.title|markdown|json_encode}},
+          "textStyle": "subheadingTextStyle",
+          "layout": {
+            "margin": {
+              "top": 20,
+              "bottom": 20
+            }
+          }
+        },
+        {
+          "role": "photo",
+          "URL": "{{image.url}}",
+          {% if image.caption %}
+            "caption": {{image.title|markdown|json_encode}},
+          {% endif %}
+          "format": "markdown",
+          "layout": "marginLayout",
+          "animation": {
+            "type": "fade_in",
+            "userControllable": true,
+            "initialAlpha": 0.5
+          }
+        {% if image.caption %}
+          },
+            {
+              "role": "body",
+              "format": "markdown",
+              "text": {{image.caption|markdown|json_encode}},
+              "textStyle": "bodyTextStyle",
+              "layout": "marginLayout"
+            }
+        {% else %}
+          }
+        {% endif %}
+      ]
+    {% if loop.last %}
+      }
+    {% else %}
+      },
+    {% endif %}
+
+    {% endfor %}
+  ]
+}

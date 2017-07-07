@@ -1,24 +1,25 @@
 <?php
 
+$key = 'widget_gallery';
 $widgetplacement = self::$config['tab_placement'];
 
 $choices = self::$config['image_choices'];
 $choices['original'] = 'Original';
 
 $widget_config = array (
-  'key' => 'widget_gallery',
+  'key' => $key,
   'name' => 'gallery',
   'label' => 'Gallery',
   'display' => 'block',
   'sub_fields' => array (
     array (
-      'key' => 'gallery_basic_details_tab',
+      'key' => $key . '_basic_details_tab',
       'label' => 'Basic Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
     ),
     array (
-      'key' => 'widget_gallery_galleryitems',
+      'key' => $key . '_galleryitems',
       'label' => 'Gallery items',
       'name' => 'gallery_items',
       'type' => 'gallery',
@@ -27,13 +28,13 @@ $widget_config = array (
       'library' => 'all',
     ),
     array (
-      'key' => 'gallery_advanced_details_tab',
+      'key' => $key . '_advanced_details_tab',
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
     ),
     array (
-      'key' => 'widget_gallery_crop',
+      'key' => $key . '_crop',
       'label' => 'Select a preferred crop size',
       'name' => 'crop',
       'type' => 'select',
@@ -44,5 +45,5 @@ $widget_config = array (
   )
 );
 
-$widget_config["content-types"] = array('post', 'page', 'sponsored_post', 'sponsored_longform'); // section, post
+$widget_config["content-types"] = get_option("options_" . $key . "_available_post_types");
 $widget_config["content-sizes"] = array('main'); // main, sidebar

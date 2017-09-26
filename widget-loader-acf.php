@@ -4,7 +4,7 @@ $key = 'widget_gallery';
 $widgetplacement = self::$config['tab_placement'];
 
 $choices = self::$config['image_choices'];
-$choices['original'] = 'Original';
+$choices['original'] = 'No crop';
 
 $widget_config = array (
   'key' => $key,

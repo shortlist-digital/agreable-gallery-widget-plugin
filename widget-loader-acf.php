@@ -27,20 +27,20 @@ $widget_config = array (
       'preview_size' => 'large',
       'library' => 'all',
     ),
+	array (
+	  'key' => $key . '_crop',
+	  'label' => 'Select a preferred crop size',
+	  'name' => 'crop',
+	  'type' => 'select',
+	  'required' => 1,
+	  'choices' => $choices,
+	  'default_value' => 'original'
+	),
     array (
       'key' => $key . '_advanced_details_tab',
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
-    ),
-    array (
-      'key' => $key . '_crop',
-      'label' => 'Select a preferred crop size',
-      'name' => 'crop',
-      'type' => 'select',
-      'required' => 1,
-      'choices' => $choices,
-      'default_value' => 'original'
     ),
   )
 );

@@ -32,6 +32,7 @@ $widget_config = array (
 	  'label' => 'Select a preferred crop size',
 	  'name' => 'crop',
 	  'type' => 'select',
+	  'instructions' => 'This will force all items to have the same crop. Don&rsquo;t forget to manually adjust the corresponding crop for each image.',
 	  'required' => 1,
 	  'choices' => $choices,
 	  'default_value' => 'original'

@@ -4,7 +4,7 @@ $key = 'widget_gallery';
 $widgetplacement = self::$config['tab_placement'];
 
 $choices = self::$config['image_choices'];
-$choices['original'] = 'Original';
+$choices['original'] = 'No crop';
 
 $widget_config = array (
   'key' => $key,
@@ -27,20 +27,21 @@ $widget_config = array (
       'preview_size' => 'large',
       'library' => 'all',
     ),
+	array (
+	  'key' => $key . '_crop',
+	  'label' => 'Select a preferred crop size',
+	  'name' => 'crop',
+	  'type' => 'select',
+	  'instructions' => 'This will force all items to have the same crop. Don&rsquo;t forget to manually adjust the corresponding crop for each image.',
+	  'required' => 1,
+	  'choices' => $choices,
+	  'default_value' => 'original'
+	),
     array (
       'key' => $key . '_advanced_details_tab',
       'label' => 'Advanced Details',
       'type' => 'tab',
       'placement' => $widgetplacement,
-    ),
-    array (
-      'key' => $key . '_crop',
-      'label' => 'Select a preferred crop size',
-      'name' => 'crop',
-      'type' => 'select',
-      'required' => 1,
-      'choices' => $choices,
-      'default_value' => 'original'
     ),
   )
 );

@@ -23,7 +23,7 @@
         },
         {
           "role": "photo",
-          "URL": "{{image.url}}",
+          "URL": "{{TimberImage(image).src(crop)}}",
           {% if image.caption %}
             "caption": {{image.title|markdown|json_encode}},
           {% endif %}
